@@ -1,6 +1,6 @@
-package com.metacortex.api.Validaciones;
+package com.koordinator.epsilon.Koordinator.Validaciones.MetacortexStaticLibrary;
 
-import com.metacortex.api.Excepciones.ActivoNoEncontradoException;
+import com.koordinator.epsilon.Koordinator.Excepciones.ActivoNoEncontradoException;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -56,7 +56,7 @@ public class ValidacionesEstaticas {
                 return validacionSMA(parametrosRecibidos);
 
             case "simpleSinSeries":
-                return validacionSimboloIntervalo(parametrosRecibidos);
+                return validacionSimboloIntervaloHistorico(parametrosRecibidos);
 
 
             case "simpleConSeries":
@@ -102,7 +102,7 @@ public class ValidacionesEstaticas {
     }
 
 
-    public static boolean validacionSimboloIntervalo(Map<String, String> parametrosRecibidos) {
+    public static boolean validacionSimboloIntervaloHistorico(Map<String, String> parametrosRecibidos) {
         if (parametrosRecibidos.containsKey(nombreParBase) && parametrosRecibidos.containsKey(nombreParContra) && parametrosRecibidos.containsKey(intervaloHistorico)) {
             if (esIntervaloDeBinance(parametrosRecibidos.get(intervaloHistorico))) {
                 return true;
@@ -113,6 +113,19 @@ public class ValidacionesEstaticas {
             throw new ActivoNoEncontradoException("You trying to make a request without all the required parameters!");
         }
     }
+
+    public static boolean validacionSimboloIntervaloIndicador(Map<String, String> parametrosRecibidos) {
+        if (parametrosRecibidos.containsKey(nombreParBase) && parametrosRecibidos.containsKey(nombreParContra) && parametrosRecibidos.containsKey(intervaloPeriodoIndicador)) {
+            if (esIntervaloDeBinance(parametrosRecibidos.get(intervaloHistorico))) {
+                return true;
+            } else {
+                throw new ActivoNoEncontradoException("You have introduced an invalid series type , valid ones are : open close low high");
+            }
+        } else {
+            throw new ActivoNoEncontradoException("You trying to make a request without all the required parameters!");
+        }
+    }
+
 
 
     public static boolean esIntervaloDeBinance(String intervalo) {

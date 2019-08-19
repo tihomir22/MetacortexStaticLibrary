@@ -1,12 +1,12 @@
-package com.metacortex.api.Validaciones;
+package com.koordinator.epsilon.Koordinator.Validaciones.MetacortexStaticLibrary;
 
-import com.metacortex.api.Excepciones.ActivoNoEncontradoException;
-import com.metacortex.api.Respuestas.RespuestaIndicadorTecnico;
-import com.metacortex.api.entidades.AssetPrice;
-import com.metacortex.api.entidades.HistoricDataWrapper;
-import com.metacortex.api.entidades.TechnicalIndicatorWrapper;
-import com.metacortex.api.entidades.TechnicalRegistry;
-import com.metacortex.api.repositorio.RepositorioActivos;
+import com.koordinator.epsilon.Koordinator.Excepciones.ActivoNoEncontradoException;
+import com.koordinator.epsilon.Koordinator.Respuestas.RespuestaIndicadorTecnico;
+import com.koordinator.epsilon.Koordinator.entidades.AssetPrice;
+import com.koordinator.epsilon.Koordinator.entidades.HistoricDataWrapper;
+import com.koordinator.epsilon.Koordinator.entidades.TechnicalIndicatorWrapper;
+import com.koordinator.epsilon.Koordinator.entidades.TechnicalRegistry;
+import com.koordinator.epsilon.Koordinator.repositorio.RepositorioActivos;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
