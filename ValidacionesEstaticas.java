@@ -21,12 +21,12 @@ public class ValidacionesEstaticas {
     public static String MACDfastPeriod = "fastPeriod";
     public static String MACDslowPeriod = "slowPeriod";
     public static String MACDsignalPeriod = "signalPeriod";
+    public static String BBANDSDesviacionArriba="upperDesv";
+    public static String BBANDSDesviacionAbajo="lowerDesv";
+    public static String generalMATypeParameter="maType";
 
     public static String URLBASE = "https://koordinator1488.herokuapp.com/";
     public static String URLLOCAL = "http://localhost:8091/";
-    public static String endPointPrecio = "prices/";
-    public static String smaInterrogante = "sma?";
-    public static String endPointHistoric = "historic/";
     public static String endPointTEchnical = "technical/";
 
     public static boolean esPeticionDePrecio(Map<String, String> parametrosRecibidos) {
@@ -107,7 +107,7 @@ public class ValidacionesEstaticas {
             if (esIntervaloDeBinance(parametrosRecibidos.get(intervaloHistorico))) {
                 return true;
             } else {
-                throw new ActivoNoEncontradoException("You have introduced an invalid series type , valid ones are : open close low high");
+                throw new ActivoNoEncontradoException("You have introduced an invalid historic interval , valid ones are : open close low high");
             }
         } else {
             throw new ActivoNoEncontradoException("You trying to make a request without all the required parameters!");
@@ -119,7 +119,7 @@ public class ValidacionesEstaticas {
             if (esIntervaloDeBinance(parametrosRecibidos.get(intervaloHistorico))) {
                 return true;
             } else {
-                throw new ActivoNoEncontradoException("You have introduced an invalid series type , valid ones are : open close low high");
+                throw new ActivoNoEncontradoException("You have introduced an invalid series type , valid ones are : 3m 5m 15m 30m 1h 2h 4h 6h 8h 12h 1d 3d 1w 1M");
             }
         } else {
             throw new ActivoNoEncontradoException("You trying to make a request without all the required parameters!");
